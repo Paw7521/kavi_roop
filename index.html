@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔒 Secret Poem</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Nirmala UI", sans-serif;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    padding:20px;
+}
+
+.container{
+    width:100%;
+    max-width:800px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 0 25px rgba(0,0,0,0.4);
+}
+
+h1{
+    margin-bottom:20px;
+}
+
+input{
+    width:100%;
+    max-width:300px;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    margin-top:10px;
+    font-size:16px;
+    text-align:center;
+}
+
+button{
+    margin-top:15px;
+    padding:12px 25px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+#poem{
+    display:none;
+    text-align:left;
+    line-height:2;
+    margin-top:25px;
+    white-space:pre-line;
+    font-size:20px;
+}
+
+.error{
+    color:#ff6b6b;
+    margin-top:10px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🔒 Secret Poetry</h1>
+
+    <p>कविता पढ़ने के लिए Password डालिए</p>
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Password">
+
+    <br>
+
+    <button onclick="checkPassword()">
+        Open Poem
+    </button>
+
+    <div class="error" id="error"></div>
+
+    <div id="poem">
+
+बिजली की चमक सी आती है वो  
+बरसती नहीं कड़क के डरा जाती है वो  
+दिल में भाले सी चुभ जाती है वो  
+पता नहीं क्यों आती है वो ?
+
+आ के छड़भर में चली जाती है वो  
+बड़ी खूब यादें छोड़ जाती है वो  
+सोचने को मजबूर कर जाती है वो  
+पता नहीं क्यों आती है वो ?
+
+लम्बी लम्बी बातें कर जाती है वो  
+यादों के सहारे जीने को छोड़ जाती है वो  
+हृदय में हिलकोरे मार जाती है वो  
+क्यों इन यादों को छोड़ जाती है वो  
+पता नहीं क्यों आती है वो ?
+
+    </div>
+
+</div>
+
+<script>
+
+function checkPassword(){
+
+    const password = document.getElementById("password").value;
+
+    if(password === "NARAYANJI"){
+
+        document.getElementById("poem").style.display = "block";
+
+        document.getElementById("error").innerHTML = "";
+
+    }else{
+
+        document.getElementById("error").innerHTML =
+        "❌ गलत Password";
+    }
+}
+
+</script>
+
+</body>
+</html>
