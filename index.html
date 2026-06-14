@@ -13,7 +13,7 @@
 }
 
 body{
-    font-family:"Nirmala UI", sans-serif;
+    font-family:"Nirmala UI",sans-serif;
     background:linear-gradient(135deg,#0f172a,#1e293b);
     min-height:100vh;
     display:flex;
@@ -24,8 +24,8 @@ body{
 }
 
 .container{
+    max-width:850px;
     width:100%;
-    max-width:800px;
     background:rgba(255,255,255,0.08);
     backdrop-filter:blur(10px);
     border-radius:20px;
@@ -34,90 +34,95 @@ body{
     box-shadow:0 0 25px rgba(0,0,0,0.4);
 }
 
-h1{
-    margin-bottom:20px;
-}
-
 input{
-    width:100%;
-    max-width:300px;
     padding:12px;
+    width:280px;
     border:none;
     border-radius:10px;
-    margin-top:10px;
-    font-size:16px;
     text-align:center;
+    margin-top:15px;
 }
 
 button{
-    margin-top:15px;
     padding:12px 25px;
+    margin-top:15px;
     border:none;
     border-radius:10px;
     cursor:pointer;
-    font-size:16px;
     font-weight:bold;
-}
-
-button:hover{
-    transform:scale(1.05);
 }
 
 #poem{
     display:none;
-    text-align:left;
+    margin-top:30px;
     line-height:2;
-    margin-top:25px;
-    white-space:pre-line;
     font-size:20px;
+    white-space:pre-line;
+    text-align:left;
 }
 
-.error{
-    color:#ff6b6b;
+#error{
+    color:#ff7b7b;
     margin-top:10px;
+}
+
+/* Hidden Music Player */
+#musicFrame{
+    position:absolute;
+    width:1px;
+    height:1px;
+    opacity:0;
+    pointer-events:none;
 }
 </style>
 </head>
 <body>
 
+<!-- Hidden Background Music -->
+<iframe
+id="musicFrame"
+src=""
+allow="autoplay">
+</iframe>
+
 <div class="container">
 
-    <h1>🔒 Secret Poetry</h1>
+<h1>🔒 Secret Poetry</h1>
 
-    <p>कविता पढ़ने के लिए Password डालिए</p>
+<p>कविता पढ़ने के लिए Password डालिए</p>
 
-    <input
-        type="password"
-        id="password"
-        placeholder="Password">
+<input
+type="password"
+id="password"
+placeholder="Password">
 
-    <br>
+<br>
 
-    <button onclick="checkPassword()">
-        Open Poem
-    </button>
+<button onclick="checkPassword()">
+Open Poem
+</button>
 
-    <div class="error" id="error"></div>
+<div id="error"></div>
 
-    <div id="poem">
+<div id="poem">
 
-बिजली की चमक सी आती है वो  
-बरसती नहीं कड़क के डरा जाती है वो  
-दिल में भाले सी चुभ जाती है वो  
+बिजली की चमक सी आती है वो
+बरसती नहीं कड़क के डरा जाती है वो
+दिल में भाले सी चुभ जाती है वो
 पता नहीं क्यों आती है वो ?
 
-आ के छड़भर में चली जाती है वो  
-बड़ी खूब यादें छोड़ जाती है वो  
-सोचने को मजबूर कर जाती है वो  
+आ के छड़भर में चली जाती है वो
+बड़ी खूब यादें छोड़ जाती है वो
+सोचने को मजबूर कर जाती है वो
 पता नहीं क्यों आती है वो ?
 
-लम्बी लम्बी बातें कर जाती है वो  
-यादों के सहारे जीने को छोड़ जाती है वो  
-हृदय में हिलकोरे मार जाती है वो  
-क्यों इन यादों को छोड़ जाती है वो  
+लम्बी लम्बी बातें कर जाती है वो
+यादों के सहारे जीने को छोड़ जाती है वो
+हृदय में हिलकोरे मार जाती है वो
+क्यों इन यादों को छोड़ जाती है वो
 पता नहीं क्यों आती है वो ?
 
-    </div>
+</div>
 
 </div>
 
@@ -125,19 +130,26 @@ button:hover{
 
 function checkPassword(){
 
-    const password = document.getElementById("password").value;
+    const pass =
+    document.getElementById("password").value;
 
-    if(password === "NARAYANJI"){
+    if(pass === "NARAYANJI"){
 
         document.getElementById("poem").style.display = "block";
 
         document.getElementById("error").innerHTML = "";
 
-    }else{
+        document.getElementById("musicFrame").src =
+        "https://www.youtube.com/embed/t5_PmLLLgRM?autoplay=1&loop=1&playlist=t5_PmLLLgRM";
+
+    }
+    else{
 
         document.getElementById("error").innerHTML =
         "❌ गलत Password";
+
     }
+
 }
 
 </script>
